@@ -17,7 +17,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       inject: [ConfigService],
       driver: ApolloDriver,
       //TODO !! DONT FORGET TO PUT CONFIG SERVICE IN THE USEFACTORY !!
-      useFactory: async (configService: ConfigService) => {
+      useFactory: async () => {
         return {
           autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
           playground: true,

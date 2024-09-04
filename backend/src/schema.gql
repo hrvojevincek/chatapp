@@ -21,6 +21,7 @@ type Mutation {
   logout: String!
   refreshToken: String!
   register(registerInput: RegisterDto!): RegisterResponse!
+  updateProfile(file: Upload, fullname: String!): User!
 }
 
 type Query {
@@ -38,12 +39,15 @@ type RegisterResponse {
   user: User
 }
 
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
 type User {
-  avatarUrl: String!
-  createdAt: DateTime!
+  avatarUrl: String
+  createdAt: DateTime
   email: String!
-  fullName: String!
+  fullname: String!
   id: Float
-  password: String!
-  updatedAt: DateTime!
+  password: String
+  updatedAt: DateTime
 }
